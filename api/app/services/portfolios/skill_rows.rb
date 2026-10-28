@@ -46,6 +46,7 @@ module Portfolios
 
       skill_id = item['skill_id'].to_s.strip
       skill_id = nil if skill_id.empty?
+      return if !@discovered && unreached?(skill_id, label)
 
       level = parse_level(item['level'])
       return if level.nil?
